@@ -47,4 +47,4 @@ Die Bewertung findet hauptsächlich im Rahmen der Veranstaltung *Kreatives Progr
 ## Links & Literatur
 
 * [SuperCollider](https://supercollider.github.io/)
-* ...
+* [Kreatives Programmieren II 2019-2020](https://github.com/cappelnord/Kreatives-Programmieren-II-2019-2020)

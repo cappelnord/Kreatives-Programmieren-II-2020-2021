@@ -9,3 +9,7 @@ Hier soll ein Repository mit Notizen, Materialien und Code zum Modul *Kreatives 
 * [Creative Coding Lab](CCL)
 
 Zusätzlich eine Sammlung an (hoffentlich) hilfreichen [Code-Snippets](FAQ) die auf Anfragen von Studierenden entstanden sind. Diese Snippets sind teilweise aus dem letzen Jahr übertragen.
+
+## Kreatives Programmieren II 2019-2020
+
+Stöbert gerne auch in den [Materialien des letzen Jahres](https://github.com/cappelnord/Kreatives-Programmieren-II-2019-2020)! Die Inhalte werden sich nicht decken und vielleicht findet ihr hier auch etwas spannendes.
