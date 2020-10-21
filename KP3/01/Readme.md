@@ -1,4 +1,4 @@
-# 09.10.2019; Kreatives Programmieren 3
+# 21.10.2020; Kreatives Programmieren 3
 
 Notizen zur ersten Sitzung *Kreatives Programmieren 3* und Vorstellung des Moduls *Kreatives Programmieren II*.
 
