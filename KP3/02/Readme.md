@@ -4,23 +4,23 @@ SuperCollider Intensiv.
 
 ## Übungsaufgabe
 
-Nutzt [Ndefs](https://doc.sccode.org/Classes/Ndef.html) um eine Sound-Performance zu gestalten. Mehrere Ndefs können hierbei zusammen klingen oder auch ineinaner verschachtelt sein. Nutzt als Synthesetechniken Additive Synthese, Subtraktive Synthese oder FM/AM-Synthese - gerne auch in Kombination miteinander. Nutzt LFOs um euren Klang lebendig zu gestalten. Interagiert mit den Ndefs als Teil einer Improvisation/Performance: Ändert Ndefs bzw. Parameter durch Live-Coding oder nutzt auch [NdefMixer](https://doc.sccode.org/Classes/NdefMixer.html). Ihr dürft auch gerne [MouseX](https://doc.sccode.org/Classes/MouseX.html) bzw. [MouseY](https://doc.sccode.org/Classes/MouseY.html) oder [MIDI](../../FAQ/midi_cc.scd) zur Steuerung nutzen.
+Nutzt [Ndefs](https://doc.sccode.org/Classes/Ndef.html) um eine kleine Klangsynthese-Performance zu gestalten. Mehrere Ndefs können hierbei einzeln (in Sequenz) oder zusammen erklingen. Ndefs können auch untereinander miteinander verbunden sein. Nutzt als Synthesetechniken Additive Synthese, Subtraktive Synthese oder FM/AM-Synthese - gerne auch in Kombination miteinander. Nutzt LFOs um euren Klang lebendig zu gestalten. Interagiert mit den Ndefs als Teil einer Improvisation/Performance: Ändert Ndefs bzw. Parameter durch Live-Coding oder nutzt [NdefMixer](https://doc.sccode.org/Classes/NdefMixer.html) zur Steuerung der Ndefs per GUI. Ihr dürft auch gerne [MouseX](https://doc.sccode.org/Classes/MouseX.html) bzw. [MouseY](https://doc.sccode.org/Classes/MouseY.html) oder [MIDI](../../FAQ/midi_cc.scd) zur Steuerung nutzen. Eure kleine Performance sollte mindestens 3 verschiedene Ndefs beinhalten.
 
 ### Abgabe
 
-Erstellt auf GitHub ein privates Repository und fügt GitHub User cappelnord als Collaborator hinzu. Die Übungsaufgaben dieses Seminars sollen alle in diesem Repository liegen. Erstellt am besten einen Unterordner für jede Übungsaufgabe.
+Erstellt auf GitHub ein privates Repository und fügt GitHub User [cappelnord](https://github.com/cappelnord) als Collaborator hinzu. Die Übungsaufgaben dieses Seminars sollen alle in dieses Repository abgelegt werden. Erstellt am besten einen Unterordner für jede Übungsaufgabe.
 
-**Zur Abgabe gehören:**
+**Zur Abgabe gehören (immer):**
 
 * Aufgeräumter Quelltext
 
-* Kurzer Texts zum Projekt (entweder als Kommentare im Quelltext oder als Markdown-Dokument innerhalb des Git-Repositories)
+* Kurzer Texts zu euer Abgabe (entweder als Kommentare im Quelltext oder als Markdown-Dokument innerhalb des Git-Repositories)
 
-* Eine kurze Audioaufnahme als Demo; am besten bereits in Form einer kleinen Improvisation/Performance mit Parametern bzw. Code-Fragmenten. Abgabe entweder als Teil des Git-Repositories oder seperat per E-Mail.
+* Eine Audioaufnahme als Demo; in diesem Fall am besten bereits in Form einer kleinen Improvisation/Performance. Abgabe entweder als Teil des Git-Repositories oder seperat per E-Mail.
 
-**Abgabe bis zum 18.11.2020.** An diesem Mittwoch wollen wir uns gegenseitig unseren Code präsentieren und den Code diskutieren.
+**Abgabe bis zum 18.11.2020.** An diesem Mittwoch wollen wir uns auch gegenseitig unseren Code präsentieren und diskutieren.
 
-## Literatur/Resourcen
+## Literatur/Ressourcen
 
 * **[SuperCollider Documentation](https://doc.sccode.org/)**
 * Wilson, S., Cottle, D., Collins, N. (eds) (2011). *The SuperCollider Book*. MIT Press.
