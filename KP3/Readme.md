@@ -3,14 +3,14 @@
 ## Semesterüberblick
 
 * 21.10.2020 - **[Überblick](01)**
-* 28.10.2020
-* 04.11.2020
-* 11.11.2020
-* 18.11.2020
-* 25.11.2020
-* 02.12.2020
-* 09.12.2020
-* 16.12.2020
+* 28.10.2020 - **[SuperCollider I](02)**
+* 04.11.2020 - **SuperCollider II**
+* 11.11.2020 - **SuperCollider III**
+* 18.11.2020 - **SuperCollider IV** (Präsentation Übungsaufgaben)
+* 25.11.2020 - **Diskussion**
+* 02.12.2020 - **Zufall I**
+* 09.12.2020 - **Zufall II** (Kurzreferate)
+* 16.12.2020 - **Zufall III** (Präsentationen)
 * 13.01.2021
 * 20.01.2021
 * 27.01.2021
