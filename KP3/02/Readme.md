@@ -22,4 +22,10 @@ Erstellt auf GitHub ein privates Repository und fügt GitHub User cappelnord als
 
 ## Literatur/Resourcen
 
-* ...
+* **[SuperCollider Documentation](https://doc.sccode.org/)**
+* Wilson, S., Cottle, D., Collins, N. (eds) (2011). *The SuperCollider Book*. MIT Press.
+* Valle, Andrea (2016). *Introduction to SuperCollider*. Logos Verlag Berlin.
+* Roads, Curtis (1996). *The Computer Music Tutorial*. MIT Press.
+* [Eli Fieldsteel Tutorials auf YouTube](https://www.youtube.com/c/elifieldsteel/videos)
+* [SuperCollider Code Beispiele](https://sccode.org)
+* [sc140](https://supercollider.github.io/community/sc140)
