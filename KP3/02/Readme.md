@@ -2,6 +2,8 @@
 
 SuperCollider Intensiv.
 
+## [sc_intensiv_01.scd](sc_intensiv_01.scd)
+
 ## Übungsaufgabe
 
 Nutzt [Ndefs](https://doc.sccode.org/Classes/Ndef.html) um eine kleine Klangsynthese-Performance zu gestalten. Mehrere Ndefs können hierbei einzeln (in Sequenz) oder zusammen erklingen. Ndefs können auch untereinander miteinander verbunden sein. Nutzt als Synthesetechniken Additive Synthese, Subtraktive Synthese oder FM/AM-Synthese - gerne auch in Kombination miteinander. Nutzt LFOs um euren Klang lebendig zu gestalten. Interagiert mit den Ndefs als Teil einer Improvisation/Performance: Ändert Ndefs bzw. Parameter durch Live-Coding oder nutzt [NdefMixer](https://doc.sccode.org/Classes/NdefMixer.html) zur Steuerung der Ndefs per GUI. Ihr dürft auch gerne [MouseX](https://doc.sccode.org/Classes/MouseX.html) bzw. [MouseY](https://doc.sccode.org/Classes/MouseY.html) oder [MIDI](../../FAQ/midi_cc.scd) zur Steuerung nutzen. Eure kleine Performance sollte mindestens 3 verschiedene Ndefs beinhalten.
