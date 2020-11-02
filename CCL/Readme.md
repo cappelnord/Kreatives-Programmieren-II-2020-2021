@@ -2,6 +2,8 @@
 
 ## Semesterüberblick
 
+### [23.10.2020 | Creative Coding Intro](00_cc)
+
 ### 06.11.2020 | Web-Everything I: HTML/CSS/JavaScript
 
 ### 20.11.2020 | Glitch
