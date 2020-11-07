@@ -4,11 +4,11 @@
 
 ### [23.10.2020 | Creative Coding Intro](00_cc)
 
-### 06.11.2020 | Web-Everything I: HTML/CSS/JavaScript
+### [06.11.2020 | Web-Everything I: HTML/CSS/JavaScript](01_hcj)
 
 ### 20.11.2020 | Glitch
 
-### 04.12.2020 | 
+### 04.12.2020 | Web Everything II
 
 ### 18.12.2020 | 
 
