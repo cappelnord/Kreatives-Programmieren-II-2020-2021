@@ -15,7 +15,6 @@
 
 
 // Bei einzelnen Zeilen ist die Nutzung nicht relevant
-// ---------------------------------------------------
 
 "hallo".postln
 "hallo".postln;
@@ -23,14 +22,12 @@
 
 // Bei Ausführen von Code Blöcken ist die Nutzung relevant da sonst
 // einzelne Zeilen nicht als separate Befehle interpretiert werden.
-// ----------------------------------------------------------------
 
 (
 "hallo".postln
 
 "tschüss".postln
 )
-
 
 (
 "hallo".postln;
@@ -40,7 +37,6 @@
 
 
 // Das Gleiche gilt für die Nutzung in Funktionen
-// ----------------------------------------------
 
 (
 10.do{ |i|
@@ -81,7 +77,6 @@ var counter = 0;  // Definition eines Zählers mit lokaler Variable
 
 
 // Das Zähler-Argument in verschachtelten Loops
-// --------------------------------------------
 
 (
 2.do{ |i|
@@ -129,7 +124,6 @@ var counter = 0;  // Definition eines Zählers mit lokaler Variable
 
 
 // Server booten plus nützliche GUI-Utilities
-// ------------------------------------------
 
 s.boot;
 s.scope;
@@ -138,8 +132,7 @@ s.freqscope;
 
 
 
-// Plotten von Signalen um Phase und Polarität zu Visualisieren
-// ------------------------------------------------------------
+// Signale plotten um Phase und Polarität zu Visualisieren
 
 { SinOsc.ar(400) * 0.5 !2 }.play;  // Test Sound
 
@@ -173,7 +166,6 @@ NdefMixer(s);  // NdefMixer GUI
 
 
 // Einfache Modulation
-// -------------------
 
 Ndef(\a, { SinOsc.ar(400) * SinOsc.ar(MouseX.kr(1, 100)).range(0, 1) !2 });
 
@@ -183,7 +175,6 @@ Ndef(\a).stop;
 
 
 // Ndef mit Argumenten und lokalen Variablen zur besseren Code-Strukturierung
-// --------------------------------------------------------------------------
 
 (
 Ndef(\aa, { | freqSnd = 300, freqMod = 10 |
@@ -209,7 +200,6 @@ Ndef(\aa).set(\freqSnd, 200);
 
 // Definition des Modulationssignals als separaten Ndef
 // und verschachtelung von Ndefs
-// ----------------------------------------------------
 
 Ndef(\mod, { | freq = 1 | SinOsc.ar(freq).range(0, 1) });
 Ndef(\mod).set(\freq, 10);
@@ -233,7 +223,7 @@ Ndef(\snd).stop;
 
 
 // Wobble Bass
-// -----------
+
 
 //{ LFSaw.ar(1, 1).range(0, 1) }.plot(2);
 //{ LFTri.ar(1, 3).range(0, 1) }.plot(2);
@@ -241,6 +231,7 @@ Ndef(\snd).stop;
 
 //Ndef(\mod2, { | freq = 10 | LFSaw.ar(freq).range(30, 1000) });
 //Ndef(\mod2).set(\freq, 10);
+
 
 Ndef(\mod2, { LFTri.ar(SinOsc.ar(0.2).range(1, 10)).range(30, 1000) });
 
@@ -264,7 +255,6 @@ Ndef(\wobble).stop;
 
 
 // Nützliche Methoden zur Ausführung auf alle Ndefs
-// ------------------------------------------------
 
 Ndef.all.do(_.clear);
 Ndef.all.do(_.stop);
@@ -272,8 +262,8 @@ Ndef.all.do(_.stop);
 
 
 // Einige UGens für Modulationssignale
-// -----------------------------------
 
+/*
 SinOsc
 Saw
 Pulse
@@ -283,4 +273,4 @@ LFPulse
 LFNoise0
 LFNoise1
 LFNoise2
-
+*/

@@ -20,14 +20,26 @@ s.meter;
 NdefMixer(s);
 
 
+
 // -----------------
 // Additive Synthese
 // -----------------
 
 
+/*
+
+Die Idee bei Additiver Synthese ist durch die Summierung einfacher Wellenformen
+(in den meisten Fällen Sinuswelle) ein komplexes Spektrum zu synthestisieren.
+
+Hierbei wollen  wir die Kontrolle über die Frequenzen, Phasen sowie Amplituden der
+einzlenen Obertöne die summiert werden haben.
+
+*/
+
+
 
 // Harmonisches Spektrum
-// ---------------------------------------------------
+// --> https://en.wikipedia.org/wiki/Additive_synthesis#Harmonic_form
 
 (
 Ndef(\addHarmonic, { | amp = 0.5 |
@@ -65,7 +77,7 @@ var num_K = 20, f_0 = 80;
 
 
 // Inharmonisches Spektrum
-// ---------------------------------------------------
+// --> https://en.wikipedia.org/wiki/Additive_synthesis#Inharmonic_form
 
 (
 Ndef(\addInharmonic, { | amp = 0.5 |
@@ -93,8 +105,7 @@ Ndef(\addInharmonic).clear;
 
 
 
-// Akkord-Verschiebung durch LFO
-// ---------------------------------------------------
+// Akkord-Verschiebung mit LFO
 
 Ndef(\mod, { | min = 1, max = 2| LFNoise0.kr(SinOsc.kr(1).range(1, 10)).range(min, max) })  // LFO
 
@@ -123,5 +134,5 @@ Ndef(\addChord, { | amp = 0.5 |
 
 Ndef(\addChord).play;
 Ndef(\addChord).stop;
-Ndef(\addChord).set(\freqs, [60, 61, 65, 68].midicps);
+Ndef(\addChord).set(\freqs, [60, 61, 65, 68].midicps); // C#maj7
 Ndef(\addChord).clear;
