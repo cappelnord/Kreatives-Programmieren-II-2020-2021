@@ -2,6 +2,12 @@
 
 Präsentation der Übungsaufgaben
 
+## #shell-support
+
+* 20. November, 11:00-12:30.
+
+## Git und #git-support
+
 ## Vorbereitung für die nächste Woche
 
 Bitte lest euch folgenden Text durch und bereitet ihn als Grundlage einer Diskussion zu dem Thema Generative Techniken vor. Ein PDF findet ihr im Slack.
