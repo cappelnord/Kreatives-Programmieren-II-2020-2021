@@ -6,7 +6,7 @@
 
 ### [06.11.2020 | Web-Everything I: HTML/CSS/JavaScript](01_hcj)
 
-### 20.11.2020 | Glitch
+### [20.11.2020 | Glitch](02_glitch)
 
 ### 04.12.2020 | Web Everything II
 
