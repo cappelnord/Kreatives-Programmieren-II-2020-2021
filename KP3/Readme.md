@@ -6,7 +6,7 @@
 * 28.10.2020 - **[SuperCollider I](02)**
 * 04.11.2020 - **[SuperCollider II](03)**
 * 11.11.2020 - **[SuperCollider III](04)**
-* 18.11.2020 - **SuperCollider IV** (Präsentation Übungsaufgaben)
+* 18.11.2020 - **[SuperCollider IV](05)** (Präsentation Übungsaufgaben)
 * 25.11.2020 - **Diskussion**
 * 02.12.2020 - **Zufall I**
 * 09.12.2020 - **Zufall II** (Kurzreferate)
