@@ -4,7 +4,7 @@ Präsentation der Übungsaufgaben
 
 ## #shell-support
 
-* 20. November, 11:00-12:30.
+* Diesen Freitag, 20. November, 11:00-12:30.
 
 ## Git und #git-support
 
