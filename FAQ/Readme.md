@@ -6,6 +6,7 @@ Sammlung an Code-Snippets zu bestimmten Themen auf Anfragen von Studierenden.
 
 ### Synthese
 * [ADSR Envelopes beenden mit 'gate'](scsynth_adsr-gate.scd)
+* [Mit Multichannel-Expansion Signale unabhängig voneinander im Stereo-Panorama verteilen und wieder in ein Stereosignal zusammen mischen](scsynth_pan_seperate_channels.scd)
 
 ### MIDI
 * [Synthese mit MIDI CC Nachrichten steuern](midi_cc.scd)
