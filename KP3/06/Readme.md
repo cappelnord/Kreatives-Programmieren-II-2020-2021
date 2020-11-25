@@ -45,9 +45,9 @@ Leider sind wir nicht dazu gekommen viele Beispiele zu hören/uns anzuschauen. D
 * [Alvin Lucier - I am sitting in a room](https://www.youtube.com/watch?v=fAxHlLK3Oyk)
 * [Laurie Spiegel - Apalachian Grove I](https://www.youtube.com/watch?v=TFaUAAj0ubg)
 * [Mark Fell - Multistability](https://www.youtube.com/watch?v=PHIGHpWKcw0)
-* [Patrick Borgeat - Web Audio API Prototype II: Conway's Melodies](http://www.cappel-nord.de/webaudio/conways-melodies/) (Simple Verklanglichung von GoL)
+* [Patrick Borgeat - Web Audio API Prototype II: Conway's Melodies](http://www.cappel-nord.de/webaudio/conways-melodies/) *(Einfache Verklanglichung von GoL)*
 * [Brian Eno - Game Soundtrack zu Spore](https://www.youtube.com/watch?v=Wk9At6aeLjQ)
-* [Ryoji Ikeda](https://www.youtube.com/watch?v=tr4T3DPwTsQ) (Bild und Klang durch Prozess gekoppelt)
+* [Ryoji Ikeda](https://www.youtube.com/watch?v=tr4T3DPwTsQ) *(Bild und Klang durch Prozess gekoppelt)*
 
 Keine Musik:
 
