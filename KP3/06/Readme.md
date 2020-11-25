@@ -1,10 +1,14 @@
-# 16.10.2019; Kreatives Programmieren 3
+# 25.11.2020; Kreatives Programmieren 3
 
 Diskussion über das Kapitel *Generative Strategies* aus *Composing Electronic Music* von Curtis Roads.
 
 ## Kurzreferatsthemen für den 09. Dezember
 
 * Zufall in der Musik
+
+## #git-support
+
+* In 2 Wochen (Doodle kommt ...)
 
 ## Diskussion
 
