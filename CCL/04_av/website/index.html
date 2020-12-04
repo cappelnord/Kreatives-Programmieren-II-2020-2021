@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>CCL-Website</title>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Überschrift 1</h1>
+  </header>
+
+  <section>
+
+    <nav class="column cool">
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="./new.html">AV</a></li>
+        <li>Bio</li>
+        <li>News</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+
+    <div class="column" id="mein-haupt-block" onmousemove="myGradient(event)">
+      <h2>Überschrift 2</h2>
+      <h3>Überschrift 3</h3>
+      <h4>Überschrift 4</h4>
+      <h5>Überschrift 5</h5>
+      <h6>Überschrift 6</h6>
+
+      <p>
+        Halloo
+        <br/>
+        neue Zeile?
+      </p>
+
+      <button onclick="genMarkov()">
+        <label>Click me for Markov text-generation</label>
+      </button>
+
+      <p id="p-markov">Some text in a new line. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text.
+        <p>p in p test (so lieber nicht)</p>
+      </p>
+
+      <ul>
+        <li>List</li>
+        <li>items</li>
+        <li>ohne</li>
+        <li>Bezifferung</li>
+        <ol>
+          <li>Liste</li>
+          <li>mit</li>
+          <li>Bezifferung</li>
+        </ol>
+      </ul>
+
+    </div>
+  </section>
+
+  <footer>
+    Footer
+  </footer>
+
+  <script>
+  var txt = "Kimchi (koreanisch 김치) nennt man in der koreanischen Küche sowohl die Zubereitung von Gemüse (traditionell Chinakohl und koreanischer Rettich (Mu 무)) durch Milchsäuregärung als auch das auf diese Art fertig zubereitete Gemüse. Kimchi wird traditionell wie Sauerkraut als Vitamin-C-Speicher für den Winter eingemacht. In Korea gehört Kimchi praktisch zu jeder Mahlzeit, genauso wie Reis (밥 – Bab) und eine Suppe (국 – Guk bzw. 탕 – Tang). Prinzipiell kann man alle Gemüsesorten fermentieren. So sind im Laufe der Zeit viele verschiedene Arten von Kimchi entstanden, so zum Beispiel mit Gurken, Lauch, Rettich oder Chinakohl. Rettich wird je nach Bedarf verschieden zubereitet, meist in kleine Würfel geschnitten mit oder ohne Rettichgrün: 깍두기 – Kagdugi (kimchi). Je nach Region unterscheidet sich die Zubereitung: So werden in den Jeolla-Provinzen auch Austern bei der Zubereitung verwendet, in den Chungcheong-Provinzen u. a. Äpfel. Am 5. Dezember 2013 wurde Kimjang, die gemeinschaftliche Herstellung von Kimchi, von der UNESCO zur Liste des immateriellen Kulturerbes hinzugefügt.[1]";
+
+  // --------------------------------------------------------------------------------
+  // analyze text
+  var order = 3;
+  var ngrams = {};
+
+  for (var i = 0; i < txt.length; i++) {
+    var ngram = txt.substring(i, i + order);
+    if (!ngrams[ngram]) {
+      ngrams[ngram] = [];
+    }
+    ngrams[ngram].push(txt.charAt(i + order));
+  }
+  // --------------------------------------------------------------------------------
+
+  function genMarkov() {
+    // Ziel: Text im <p> ersetzen mit dem generierten Text:
+    // document.getElementById("p-markov").innerHTML = markovText
+
+    // siehe: https://github.com/CodingTrain/website/blob/main/CodingChallenges/CC_042.1_markov-chain/P5/sketch.js
+  }
+
+  function myGradient(event) {
+    var elemnt = document.getElementById("mein-haupt-block");
+
+    var x = event.clientX;
+    var y = event.clientY;
+
+    var rect = elemnt.getBoundingClientRect();
+
+    x = (x - rect.x) / rect.width * 100;
+    y = (y - rect.y) / rect.height * 100;
+
+    elemnt.style.background = "radial-gradient(at " + x + "% " + y + "%, #9999ff, #11e)";
+  }
+  </script>
+
+</body>
+
+</html>

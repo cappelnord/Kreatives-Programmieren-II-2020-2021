@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>AV</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+  <style media="screen">
+    body {
+      margin: 0;
+    }
+    #audio-button {
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Überschrift 1</h1>
+  </header>
+
+  <nav class="column">
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="./new.html">AV</a></li>
+      <li>Bio</li>
+      <li>News</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+
+  <div class="column" id="three_canvas">
+    <button type="button" id="audio-button" onclick="startAudio()">Start Audio</button>
+  </div>
+
+  <script src="js/three.js"></script>
+
+  <script>
+
+    // audio
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioContext = new AudioContext();
+    var osc1, osc2, gain;
+    var hasAudioStarted = false;
+
+    function startAudio() {
+      osc1 = audioContext.createOscillator();
+      osc1.type = 'square';
+      osc1.frequency.value = 70;
+      osc1.start();
+
+      osc2 = audioContext.createOscillator();
+      osc2.type = 'square';
+      osc2.frequency.value = 70.2;
+      osc2.start();
+
+      gain = audioContext.createGain();
+      gain.gain.value = 0.0;
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(audioContext.destination);
+
+      document.getElementById('audio-button').remove();
+      hasAudioStarted = true;
+    }
+
+    // three
+    const scene = new THREE.Scene();
+
+    var canvas_container = document.getElementById('three_canvas');
+    var rect = canvas_container.getBoundingClientRect();
+
+    var width = window.innerWidth - rect.left;
+    var height = window.innerHeight - rect.top;
+    const camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 1000);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setSize( width, height );
+
+    canvas_container.appendChild( renderer.domElement );
+
+
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshLambertMaterial( { color: 0x00CCFF } );
+    const cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    const light = new THREE.PointLight( 0xFFFFFF, 1, 500 );
+    light.position.set( 10, 0, 25 );
+    scene.add( light );
+
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    mouse.x = 100;
+
+    canvas_container.addEventListener('mousemove', onMouseMove, false);
+
+    function onMouseMove( event ) {
+      mouse.x = ( event.offsetX / width ) * 2 - 1;
+      mouse.y = - ( event.offsetY / height ) * 2 + 1;
+    }
+
+    function animate() {
+      requestAnimationFrame( animate );
+      renderer.render( scene, camera );
+
+      raycaster.setFromCamera(mouse, camera);
+	    const intersects = raycaster.intersectObjects(scene.children);
+
+      if (intersects.length > 0) {
+        cube.material.color.set(0x0055FF);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        if (hasAudioStarted) {
+          gain.gain.value = 0.1;
+        }
+      } else {
+        cube.material.color.set(0x00CCFF);
+        if (hasAudioStarted) {
+          gain.gain.value = 0.0;
+        }
+
+        // console.log(mouse);
+      }
+    }
+    animate();
+
+	</script>
+</body>
+</html>
