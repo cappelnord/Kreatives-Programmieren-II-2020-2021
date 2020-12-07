@@ -21,6 +21,7 @@ Zufall
 
 ## Weiterführende Literatur
 
+* [Randomness Guide in der SuperCollidder Hilfe](https://doc.sccode.org/Guides/Randomness.html)
 * Lorrain, Denis (1989). A Panoply of Stochastic 'Cannons'. In Curtis Roads (Ed.) *The Music Machine*. Cambridge, Mass.: The MIT Press, 351-379.
 * Knuth, Donald E. (1997). Random Numbers - Introduction. In *Art of Computer Programming, Volume 2: Seminumerical Algorithms* (Third Edition). Boston Mass.: Addison-Wesley, 1-10.
 * [Shifman, Daniel. Introduction. In *The Nature of Code*](https://natureofcode.com/book/introduction/) *Auf Grafik bezogene Aspekte von Zufall, zufälligen Bewegungen, ... in Processing*
