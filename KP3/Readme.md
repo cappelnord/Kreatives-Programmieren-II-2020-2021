@@ -10,9 +10,9 @@
 * 25.11.2020 - **[Diskussion](06)**<br/>*Curtis Roads - Composing Electronic Music; Generative Techniques*
 * 02.12.2020 - **[Zufall I](07)**
 * 09.12.2020 - **[Zufall II](08)** (Kurzreferate)<br />*Pseudozufallszahlengeneratoren<br/>Zufall in der Musik*
-* 16.12.2020 - **Zufall III** (Präsentation Übungsaufgaben)
-* 13.01.2021
-* 20.01.2021
-* 27.01.2021
-* 03.02.2021
-* 10.02.2021
+* 16.12.2020 - **[Zufall III](09)** (Präsentation Übungsaufgaben)
+* 13.01.2021 - **Feedback (& Trigger) I**
+* 20.01.2021 - **Feedback (& Trigger) II** (Kurzreferate)<br />*Feedback in der Musik*
+* 27.01.2021 - **Feedback (& Trigger) III** (Präsentation Übungsaufgaben)
+* 03.02.2021 - **Interferenzen I** (Kurzreferate)<br />*Interferenzen in der Physik*<br />*Interferenzen in der bildenden Kunst (z.B. Moiré Muster)*
+* 10.02.2021 - **Interferenzen II** (Präsentation Übungsaufgaben)
