@@ -14,5 +14,5 @@
 * 13.01.2021 - **Feedback (& Trigger) I**
 * 20.01.2021 - **Feedback (& Trigger) II** (Kurzreferate)<br />*Feedback in der Musik*
 * 27.01.2021 - **Feedback (& Trigger) III** (Präsentation Übungsaufgaben)
-* 03.02.2021 - **Interferenzen I** (Kurzreferate)<br />*Interferenzen in der Physik*<br />*Interferenzen in der bildenden Kunst (z.B. Moiré Muster)*
-* 10.02.2021 - **Interferenzen II** (Präsentation Übungsaufgaben)
+* 03.02.2021 - **Interferenzmuster I** (Kurzreferate)<br />*Interferenz in der Physik*<br />*Interferenzmuster in der bildenden Kunst (z.B. Moiré Muster)*
+* 10.02.2021 - **Interferenzmuster II** (Präsentation Übungsaufgaben)
