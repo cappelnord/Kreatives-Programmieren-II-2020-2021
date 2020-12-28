@@ -10,7 +10,7 @@
 
 ### [04.12.2020 | Web Everything II: A/V (Three.js, Web Audio API)](04_av)
 
-### 18.12.2020 | Modular Synthesis
+### [18.12.2020 | Modular/Eurorack](05_modular)
 
 ### 08.01.2020 | Web Everything III
 
