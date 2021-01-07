@@ -12,7 +12,7 @@
 
 ### [18.12.2020 | Modular/Eurorack](05_modular)
 
-### 08.01.2020 | Web Everything III
+### [08.01.2020 | Web Everything III: Node.js](06_node)
 
 ### 22.01.2021 | Hydra
 
