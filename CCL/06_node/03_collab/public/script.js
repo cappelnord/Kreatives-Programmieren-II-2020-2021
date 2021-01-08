@@ -159,7 +159,7 @@ function releaseNote(id, x, y) {
 	notes[id].avatar.remove();
 	endSound(notes[id].sound);
 
-	notes[id] = undefined;
+	delete notes[id];
 }
 
 
@@ -192,7 +192,6 @@ function start() {
 	}
 	*/
 
-
 	cnvs.addEventListener('mousedown', function(e) {
 		socket.emit("soundOn", {x: e.offsetX, y: e.offsetY});
 		noteRunning = true;
@@ -224,10 +223,16 @@ function start() {
 		releaseNote(msg.id);
 	});
 
+	socket.on("disconnect", function(msg) {
+		for(var id of Object.Keys(notes)) {
+			if(notes[id] !== undefined) {
+				releaseNote(id);
+			}
+		}
+	});
+
 	cnvs.addEventListener('mouseup', mouseReleaseFunction);
 	cnvs.addEventListener('mouseleave', mouseReleaseFunction);
-
-
 }
 
 var button = $("<button>Start!</button>");
