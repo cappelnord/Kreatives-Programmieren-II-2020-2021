@@ -169,24 +169,64 @@ function start() {
 	initializeAudio();
 	drawPiano();
 
+	var noteRunning = false;
 
+	var socket = io();
+
+	/*
 	cnvs.addEventListener('mousedown', function(e) {
 		currentID++;
 		startNote(currentID, e.offsetX, e.offsetY);
+		noteRunning = true;
 	});
 	
 	cnvs.addEventListener('mousemove', function(e) {
-		updateNote(currentID, e.offsetX, e.offsetY);
+		if(noteRunning) {
+			updateNote(currentID, e.offsetX, e.offsetY);
+		}
 	});
 
 	var mouseReleaseFunction = function(e) {
 		releaseNote(currentID);
+		noteRunning = false;
 	}
+	*/
+
+
+	cnvs.addEventListener('mousedown', function(e) {
+		socket.emit("soundOn", {x: e.offsetX, y: e.offsetY});
+		noteRunning = true;
+	});
+	
+	cnvs.addEventListener('mousemove', function(e) {
+		if(noteRunning) {
+			socket.emit("soundMove", {x: e.offsetX, y: e.offsetY});
+			updateNote(currentID, e.offsetX, e.offsetY);
+		}
+	});
+
+	var mouseReleaseFunction = function(e) {
+		if(noteRunning) {
+			socket.emit("soundOff");
+			noteRunning = false;
+		}
+	}
+
+	socket.on("soundOn", function(msg) {
+		startNote(msg.id, msg.x, msg.y);
+	});
+
+	socket.on("soundMove", function(msg) {
+		updateNote(msg.id, msg.x, msg.y);
+	});
+
+	socket.on("soundOff", function(msg) {
+		releaseNote(msg.id);
+	});
 
 	cnvs.addEventListener('mouseup', mouseReleaseFunction);
 	cnvs.addEventListener('mouseleave', mouseReleaseFunction);
 
-	var socket = io();
 
 }
 
