@@ -3,10 +3,12 @@ const express = require('express')
 
 const app = express()
  
+var message = "Hello World!";
 
 function initExpress() {
+
 	app.get('/pling', function (req, res) {
-  		res.send('Hello World');
+  		res.send(message);
 
   		udpPort.send({
         		address: "/pling",
@@ -26,21 +28,12 @@ var udpPort = new osc.UDPPort({
 
 udpPort.open();
 
-/*
 udpPort.on("message", function (oscMsg, timeTag, info) {
-	console.log(oscMsg);
+	if(oscMsg.address == '/message') {
+		message = oscMsg.args[0].value;
+	}
 });
-*/
 
 udpPort.on("ready", function () {
-	/*
-    udpPort.send({
-        address: "/node",
-        args: [{type: "i", value: 1000}]
-    }, "127.0.0.1", 57120);
-    */
     initExpress();
 });
- 
-// const n = new Client('127.0.0.1', 57120);
-// n.send('/node', 123);

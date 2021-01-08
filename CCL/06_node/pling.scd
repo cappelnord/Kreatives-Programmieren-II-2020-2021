@@ -1,14 +1,5 @@
-(
-OSCdef(\node, {|msg|
-	msg.postln;
-}, '/node')
-)
-
-n = NetAddr("127.0.0.1", 57120)
-n.sendMsg("/node", 123)
-
 o = NetAddr("127.0.0.1", 57140)
-o.sendMsg("/node", 123)
+o.sendMsg("/message", "Mein Name ist Patrick! Cool!")
 
 (
 SynthDef(\pling, {|freq=440|
