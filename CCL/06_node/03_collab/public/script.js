@@ -1,7 +1,6 @@
 var notes = {};
 var currentID = 0;
 
-var socket = io();
 var pattern = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
 
 var firstNote = 21;
@@ -167,6 +166,10 @@ function releaseNote(id, x, y) {
 function start() {
 	cnvs = document.getElementById("canvas");
 
+	initializeAudio();
+	drawPiano();
+
+
 	cnvs.addEventListener('mousedown', function(e) {
 		currentID++;
 		startNote(currentID, e.offsetX, e.offsetY);
@@ -176,15 +179,15 @@ function start() {
 		updateNote(currentID, e.offsetX, e.offsetY);
 	});
 
-	var releaseFunction = function(e) {
+	var mouseReleaseFunction = function(e) {
 		releaseNote(currentID);
 	}
 
-	cnvs.addEventListener('mouseup', releaseFunction);
-	cnvs.addEventListener('mouseleave', releaseFunction);
+	cnvs.addEventListener('mouseup', mouseReleaseFunction);
+	cnvs.addEventListener('mouseleave', mouseReleaseFunction);
 
-	initializeAudio();
-	drawPiano();
+	var socket = io();
+
 }
 
 var button = $("<button>Start!</button>");
