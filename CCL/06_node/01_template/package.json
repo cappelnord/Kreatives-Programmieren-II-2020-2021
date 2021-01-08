@@ -1,0 +1,15 @@
+{
+  "name": "ccl",
+  "version": "1.0.0",
+  "description": "a cool project for ccl",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CCL",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "osc": "^2.4.1"
+  }
+}
