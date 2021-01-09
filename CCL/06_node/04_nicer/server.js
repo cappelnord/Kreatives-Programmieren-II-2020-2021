@@ -6,8 +6,13 @@ const io = require('socket.io')(http);
 // external IDs start with 1000
 var currentID = 1000;
 
+var numOnline = 0;
+
 io.on('connection', function(socket) {
   console.log('a user connected ...');
+
+  numOnline++;
+  io.emit("numOnline", {num: numOnline});
 
   var socketIDs = {};
 
@@ -44,6 +49,11 @@ io.on('connection', function(socket) {
       socket.broadcast.emit("soundOff", {id: id});
     }
     socketIDs = {};
+
+    console.log('a user disconnected ...');
+
+    numOnline--;
+    io.emit("numOnline", {num: numOnline});
   });
 
 });

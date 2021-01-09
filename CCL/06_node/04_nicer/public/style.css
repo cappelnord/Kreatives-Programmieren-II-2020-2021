@@ -1,6 +1,5 @@
 canvas {
 	display: block;
-	cursor: crosshair;
 }
 
 body, html {
@@ -33,13 +32,35 @@ body, html {
 	background-color: rgba(100, 100, 100, 0.7);
 }
 
+#status {
+	pointer-events: none;
+	user-select: none;
+	position: absolute;
+	right: 0px;
+	width: 120px;
+	bottom: 0px;
+	height: 25px;
+	background-color: #444444;
+	margin: 0px;
+	color: #CCCCCC;
+	font-size: 11pt;
+	font-family: sans-serif;
+	text-align: center;
+	font-style: italic;
+}
+
+#statusText {
+	display: inline-block;
+	margin: 5px;
+}
+
 
 div.avatar {
 	position: absolute;
 	width: 20px;
 	height: 20px;
-	pointer-events: none;
 	font-size: 20px;
+	pointer-events: none;
 	user-select: none;
 }
 

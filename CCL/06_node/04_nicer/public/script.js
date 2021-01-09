@@ -204,6 +204,8 @@ function start() {
 	if(hasStarted) return;
 	hasStarted = true;
 
+	cnvs.css("cursor", "crosshair");
+
 	initializeAudio();
 
 	var noteRunning = false;
@@ -269,14 +271,22 @@ function start() {
 	socket.on("soundMove", soundMove);
 	socket.on("soundOff", soundOff);
 
+	socket.on("numOnline", function(msg) {
+		if(msg["num"] > 1) {
+			$("#statusText").html("" + msg["num"] + " users online");
+		} else {
+			$("#statusText").html("1 user online");
+		}
+	});
+
 	socket.on("disconnect", function(msg) {
 		for(var id of Object.keys(notes)) {
 			if(notes[id] !== undefined) {
 				releaseNote(id);
 			}
 		}
+		$("#statusText").html("disconnected");
 	});
-
 }
 
 $(document).ready(function() {
