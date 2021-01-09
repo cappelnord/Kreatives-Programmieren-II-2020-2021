@@ -3,27 +3,39 @@ const app = express()
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-var currentID = 0;
- 
-io.on('connection', function(socket) {
-  console.log('a user connected');
+// external IDs start with 1000
+var currentID = 1000;
 
-  var myID;
+io.on('connection', function(socket) {
+  console.log('a user connected ...');
+
+  var socketIDs = {};
 
   socket.on('soundOn', function(msg)  {
+    socketIDs[msg.id] = currentID;
+    msg.id = currentID;
+
+    // not handling overflow here .. but well :)
     currentID++;
-    myID = currentID;
-    msg.id = myID;
+
     io.emit("soundOn", msg);
   });
 
   socket.on('soundMove', function(msg)  {
-    msg.id = myID;
-    io.emit("soundMove", msg);
+    var id = socketIDs[msg.id];
+    if(id !== undefined) {
+      msg.id = id;
+      io.emit("soundMove", msg);
+    }
   });
 
   socket.on('soundOff', function(msg)  {
-    io.emit("soundOff", {id: myID});
+    var id = socketIDs[msg.id];
+    delete socketIDs[msg.id];
+    
+    if(id !== undefined) {
+      io.emit("soundOff", {id: id});
+    }
   });
 });
 

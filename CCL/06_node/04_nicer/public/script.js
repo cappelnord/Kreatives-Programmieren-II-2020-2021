@@ -1,5 +1,7 @@
 var notes = {};
+
 var currentID = 0;
+var currentMouseID;
 
 var pattern = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
 
@@ -211,20 +213,23 @@ function start() {
 	*/
 
 	cnvs.on('mousedown', function(e) {
-		socket.emit("soundOn", {x: e.offsetX / width, y: e.offsetY / height});
+		currentID++;
+		currentMouseID = currentID;
+		socket.emit("soundOn", {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height});
 		noteRunning = true;
 	});
 	
 	cnvs.on('mousemove', function(e) {
 		if(noteRunning) {
-			socket.emit("soundMove", {x: e.offsetX / width, y: e.offsetY / height});
+			socket.emit("soundMove", {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height});
 		}
 	});
 
 	var mouseReleaseFunction = function(e) {
 		if(noteRunning) {
-			socket.emit("soundOff");
+			socket.emit("soundOff", {id: currentMouseID});
 			noteRunning = false;
+			currentMouseID = undefined;
 		}
 	}
 
@@ -247,7 +252,7 @@ function start() {
 	});
 
 	socket.on("disconnect", function(msg) {
-		for(var id of Object.Keys(notes)) {
+		for(var id of Object.keys(notes)) {
 			if(notes[id] !== undefined) {
 				releaseNote(id);
 			}
