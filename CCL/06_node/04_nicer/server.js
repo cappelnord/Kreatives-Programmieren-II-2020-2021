@@ -37,6 +37,15 @@ io.on('connection', function(socket) {
       io.emit("soundOff", {id: id});
     }
   });
+
+  // remove all sounds from this user on disconnect
+  socket.on('disconnect', function(msg) {
+    for(id of Object.values(socketIDs)) {
+      io.emit("soundOff", {id: id});
+    }
+    socketIDs = {};
+  });
+
 });
 
 app.use(express.static('public'))
