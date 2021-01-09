@@ -180,6 +180,23 @@ function releaseNote(id, x, y) {
 	delete notes[id];
 }
 
+function soundOn(msg) {
+	startNote(msg.id, msg.x, msg.y);
+}
+
+function soundMove(msg) {
+	updateNote(msg.id, msg.x, msg.y);
+}
+
+function soundOff(msg) {
+	releaseNote(msg.id);
+}
+
+function nextLocalID() {
+	currentID = (currentID + 1) % 1000;
+	return currentID;
+}
+
 var hasStarted = false;
 
 function start() {
@@ -214,22 +231,27 @@ function start() {
 
 	cnvs.on('mousedown', function(e) {
 		if(e.button == 0) {
-			currentID++;
-			currentMouseID = currentID;
-			socket.emit("soundOn", {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height});
+			currentMouseID = nextLocalID();
+			var msg = {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height};
+			socket.emit("soundOn", msg);
+			soundOn(msg);
 			noteRunning = true;
 		}
 	});
 	
 	cnvs.on('mousemove', function(e) {
 		if(noteRunning) {
-			socket.emit("soundMove", {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height});
+			var msg = {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height};
+			socket.emit("soundMove", msg);
+			soundMove(msg);
 		}
 	});
 
 	var mouseReleaseFunction = function(e) {
 		if(noteRunning) {
-			socket.emit("soundOff", {id: currentMouseID});
+			var msg = {id: currentMouseID};
+			socket.emit("soundOff", msg);
+			soundOff(msg);
 			noteRunning = false;
 			currentMouseID = undefined;
 		}
@@ -240,23 +262,12 @@ function start() {
 			mouseReleaseFunction(e);
 		}
 	});
-	
+
 	cnvs.on('mouseleave', mouseReleaseFunction);
 
-
-
-
-	socket.on("soundOn", function(msg) {
-		startNote(msg.id, msg.x, msg.y);
-	});
-
-	socket.on("soundMove", function(msg) {
-		updateNote(msg.id, msg.x, msg.y);
-	});
-
-	socket.on("soundOff", function(msg) {
-		releaseNote(msg.id);
-	});
+	socket.on("soundOn", soundOn);
+	socket.on("soundMove", soundMove);
+	socket.on("soundOff", soundOff);
 
 	socket.on("disconnect", function(msg) {
 		for(var id of Object.keys(notes)) {

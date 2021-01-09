@@ -18,14 +18,14 @@ io.on('connection', function(socket) {
     // not handling overflow here .. but well :)
     currentID++;
 
-    io.emit("soundOn", msg);
+    socket.broadcast.emit("soundOn", msg);
   });
 
   socket.on('soundMove', function(msg)  {
     var id = socketIDs[msg.id];
     if(id !== undefined) {
       msg.id = id;
-      io.emit("soundMove", msg);
+      socket.broadcast.emit("soundMove", msg);
     }
   });
 
@@ -34,14 +34,14 @@ io.on('connection', function(socket) {
     delete socketIDs[msg.id];
     
     if(id !== undefined) {
-      io.emit("soundOff", {id: id});
+      socket.broadcast.emit("soundOff", {id: id});
     }
   });
 
   // remove all sounds from this user on disconnect
   socket.on('disconnect', function(msg) {
     for(id of Object.values(socketIDs)) {
-      io.emit("soundOff", {id: id});
+      socket.broadcast.emit("soundOff", {id: id});
     }
     socketIDs = {};
   });
