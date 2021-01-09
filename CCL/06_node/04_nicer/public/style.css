@@ -3,9 +3,10 @@ canvas {
 	cursor: crosshair;
 }
 
-body {
+body, html {
 	margin: 0px;
 	padding: 0px;
+	overflow: hidden;
 }
 
 #play {
