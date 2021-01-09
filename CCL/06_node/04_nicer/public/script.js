@@ -5,11 +5,11 @@ var pattern = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
 
 var firstNote = 21;
 var lastNote = 109;
+var numNotes = lastNote - firstNote;
 
 // will be set by drawPiano
 var width;
 var height;
-var keyWidth;
 
 // will be set by start
 var cnvs;
@@ -85,7 +85,7 @@ function drawPiano() {
 	width = cnvs[0].width;
 	height = cnvs[0].height;
 
-	keyWidth =  width / (lastNote - firstNote);
+	var keyWidth =  width / numNotes;
 
 	ctx.strokeStyle = "#888888";
 
@@ -106,8 +106,11 @@ function drawPiano() {
 }
 
 function noteFromX(x) {
-	var n = (x - (keyWidth / 2)) / width;
-	return (n * (lastNote - firstNote)) + firstNote;
+	// this seems overly complicated ...
+
+	var keyWidth = 1.0 / numNotes;
+	var n = x - (keyWidth / 2);
+	return (n * numNotes) + firstNote;
 }
 
 function freqFromNote(note) {
@@ -116,18 +119,18 @@ function freqFromNote(note) {
 
 
 function ampFromY(y) {
-	return Math.pow(100, (height - y) / height) * 0.01 * 0.4 + 0.1;
+	return Math.pow(100, 1.0 - y) * 0.01 * 0.4 + 0.1;
 }
 
 function filterFromY(y) {
-	return Math.pow(100, (height - y) / height) * 0.01 * 8000 + 1000;
+	return Math.pow(100, 1.0 - y) * 0.01 * 8000 + 1000;
 }
 
 function startNote(id, x, y) {
 	var avatar = $("<div class='avatar'>😮</div>");
 	avatar.css({
-		top: y,
-		left: x
+		left: x * width,
+		top: y * height
 	});
 
 	$("body").append(avatar);
@@ -147,8 +150,8 @@ function updateNote(id, x, y) {
 	if(notes[id] === undefined) return;
 
 	notes[id].avatar.css({
-		top: y,
-		left: x
+		left: x * width,
+		top: y * height
 	});
 
 	updateSound(notes[id].sound, freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y));
@@ -194,14 +197,13 @@ function start() {
 	*/
 
 	cnvs.on('mousedown', function(e) {
-		socket.emit("soundOn", {x: e.offsetX, y: e.offsetY});
+		socket.emit("soundOn", {x: e.offsetX / width, y: e.offsetY / height});
 		noteRunning = true;
 	});
 	
 	cnvs.on('mousemove', function(e) {
 		if(noteRunning) {
-			socket.emit("soundMove", {x: e.offsetX, y: e.offsetY});
-			updateNote(currentID, e.offsetX, e.offsetY);
+			socket.emit("soundMove", {x: e.offsetX / width, y: e.offsetY / height});
 		}
 	});
 
