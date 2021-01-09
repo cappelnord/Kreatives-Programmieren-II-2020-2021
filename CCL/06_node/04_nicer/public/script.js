@@ -251,8 +251,26 @@ function start() {
 
 	var currentMouseID;
 	var mouseNoteRunning = false;
+
+	var mouseReleaseFunction = function(e) {
+		if(mouseNoteRunning) {
+			var msg = {id: currentMouseID};
+			socket.emit("soundOff", msg);
+			soundOff(msg);
+			mouseNoteRunning = false;
+			currentMouseID = undefined;
+		}
+	}
+
 	cnvs.on('mousedown', function(e) {
 		if(e.button == 0) {
+
+			// never have 2 spawned from mouse at the same time
+
+			if(currentMouseID != undefined) {
+				mouseReleaseFunction();
+			}
+
 			currentMouseID = nextLocalID();
 			var msg = {id: currentMouseID, x: e.clientX / width, y: e.clientY / height};
 			socket.emit("soundOn", msg);
@@ -269,16 +287,6 @@ function start() {
 		}
 	});
 
-	var mouseReleaseFunction = function(e) {
-		if(mouseNoteRunning) {
-			var msg = {id: currentMouseID};
-			socket.emit("soundOff", msg);
-			soundOff(msg);
-			mouseNoteRunning = false;
-			currentMouseID = undefined;
-		}
-	}
-
 	cnvs.on('mouseup', function(e) {
 		if(e.button == 0) {
 			mouseReleaseFunction(e);
@@ -287,12 +295,23 @@ function start() {
 
 	cnvs.on('mouseleave', mouseReleaseFunction);
 
-
 	// TOUCH CTRL
 	var touchIDs = {};
 
+	var touchReleaseFunction = function(id, touchID) {
+		delete touchIDs[touchID];
+		var msg = {id: id};
+		socket.emit("soundOff", msg);
+		soundOff(msg);
+	}
+
 	cnvs.on('touchstart', function(e) {
 		for(touch of e.changedTouches) {
+			var lastID = touchIDs[touch.identifier];
+			if(lastID != undefined) {
+				touchReleaseFunction(lastID, touch.identifier);
+			}
+
 			var id = nextLocalID();
 			touchIDs[touch.identifier] = id;
 			var msg = {id: id, x: touch.clientX / width, y: touch.clientY / height};
@@ -318,10 +337,7 @@ function start() {
 		for(touch of e.changedTouches) {
 			var id = touchIDs[touch.identifier];
 			if(id !== undefined) {
-				delete touchIDs[touch.identifier];
-				var msg = {id: id};
-				socket.emit("soundOff", msg);
-				soundOff(msg);
+				touchReleaseFunction(id, touch.identifier);
 			}
 		}
 		e.preventDefault();
