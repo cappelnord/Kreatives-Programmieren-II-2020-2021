@@ -61,17 +61,28 @@ function startSound(freq, ffreq, amp, pan) {
 	var gain = audioCtx.createGain();
 	gain.gain.setValueAtTime(amp, now);
 
-	var panNode = audioCtx.createStereoPanner();
-	panNode.pan.setValueAtTime(pan, now);
 
 	osc.connect(filter);
 	filter.connect(gain);
-	gain.connect(panNode);
-	panNode.connect(sink);
+
+
+	var panNode = undefined;
+	var lastNode = undefined;
+
+	if(audioCtx.createStereoPanner !== undefined) {
+		var panNode = audioCtx.createStereoPanner();
+		panNode.pan.setValueAtTime(pan, now);
+		gain.connect(panNode);
+		panNode.connect(sink);
+		lastNode = panNode;
+	}  else {
+		gain.connect(sink);
+		lastNode = gain;
+	}
 
 	osc.start();
 
-	return {osc: osc, gain: gain, filter: filter, pan: panNode};
+	return {osc: osc, gain: gain, filter: filter, pan: panNode, lastNode: lastNode};
 }
 
 function updateSound(obj, freq, ffreq, amp, pan) {
@@ -79,7 +90,9 @@ function updateSound(obj, freq, ffreq, amp, pan) {
 	obj.osc.frequency.exponentialRampToValueAtTime(freq, now + 0.1);
 	obj.filter.frequency.exponentialRampToValueAtTime(ffreq, now + 0.1);
 	obj.gain.gain.exponentialRampToValueAtTime(amp, now + 0.05);
-	obj.pan.pan.setValueAtTime(pan, now);
+	if(obj.pan !== undefined) {
+		obj.pan.pan.setValueAtTime(pan, now);
+	}
 }
 
 function endSound(obj) {
@@ -89,7 +102,7 @@ function endSound(obj) {
 
 	window.setTimeout(function() {
 		obj.osc.stop();
-		obj.pan.disconnect();
+		obj.lastNode.disconnect();
 	}, 1200);
 }
 
