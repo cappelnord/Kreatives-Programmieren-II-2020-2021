@@ -1,9 +1,6 @@
 var notes = {};
 
 var currentID = 0;
-var currentMouseID;
-
-var pattern = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
 
 var firstNote = 21;
 var lastNote = 109;
@@ -84,6 +81,8 @@ function endSound(obj) {
 
 
 function drawPiano() {
+	var pattern = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
+
 	// access DOM element directly here
 	var cnvsDOM = cnvs[0];
 
@@ -128,7 +127,7 @@ function freqFromNote(note) {
 
 
 function ampFromY(y) {
-	return Math.pow(100, 1.0 - y) * 0.01 * 0.4 + 0.1;
+	return Math.pow(100, 1.0 - y) * 0.01 * 0.3 + 0.1;
 }
 
 function filterFromY(y) {
@@ -136,6 +135,9 @@ function filterFromY(y) {
 }
 
 function startNote(id, x, y) {
+	x = Math.min(Math.max(x, 0), 1);
+	y = Math.min(Math.max(y, 0), 1);
+
 	var avatar = $("<div class='avatar'>😮</div>");
 
 	avatar.css({
@@ -156,6 +158,8 @@ function startNote(id, x, y) {
 }
 
 function updateNote(id, x, y) {
+	x = Math.min(Math.max(x, 0), 1);
+	y = Math.min(Math.max(y, 0), 1);
 
 	// if a note does not exist yet we create it!
 	if(notes[id] === undefined) {
@@ -171,7 +175,7 @@ function updateNote(id, x, y) {
 	updateSound(notes[id].sound, freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y));
 }
 
-function releaseNote(id, x, y) {
+function releaseNote(id) {
 	if(notes[id] === undefined) return;
 
 	notes[id].avatar.remove();
@@ -208,53 +212,37 @@ function start() {
 
 	initializeAudio();
 
-	var noteRunning = false;
-
 	var socket = io();
 
-	/*
-	cnvs.addEventListener('mousedown', function(e) {
-		currentID++;
-		startNote(currentID, e.offsetX, e.offsetY);
-		noteRunning = true;
-	});
-	
-	cnvs.addEventListener('mousemove', function(e) {
-		if(noteRunning) {
-			updateNote(currentID, e.offsetX, e.offsetY);
-		}
-	});
 
-	var mouseReleaseFunction = function(e) {
-		releaseNote(currentID);
-		noteRunning = false;
-	}
-	*/
+	// MOUSE CTRL
 
+	var currentMouseID;
+	var mouseNoteRunning = false;
 	cnvs.on('mousedown', function(e) {
 		if(e.button == 0) {
 			currentMouseID = nextLocalID();
-			var msg = {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height};
+			var msg = {id: currentMouseID, x: e.clientX / width, y: e.clientY / height};
 			socket.emit("soundOn", msg);
 			soundOn(msg);
-			noteRunning = true;
+			mouseNoteRunning = true;
 		}
 	});
 	
 	cnvs.on('mousemove', function(e) {
-		if(noteRunning) {
-			var msg = {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height};
+		if(mouseNoteRunning) {
+			var msg = {id: currentMouseID, x: e.clientX / width, y: e.clientY / height};
 			socket.emit("soundMove", msg);
 			soundMove(msg);
 		}
 	});
 
 	var mouseReleaseFunction = function(e) {
-		if(noteRunning) {
+		if(mouseNoteRunning) {
 			var msg = {id: currentMouseID};
 			socket.emit("soundOff", msg);
 			soundOff(msg);
-			noteRunning = false;
+			mouseNoteRunning = false;
 			currentMouseID = undefined;
 		}
 	}
@@ -266,6 +254,47 @@ function start() {
 	});
 
 	cnvs.on('mouseleave', mouseReleaseFunction);
+
+
+	// TOUCH CTRL
+	var touchIDs = {};
+
+	cnvs.on('touchstart', function(e) {
+		for(touch of e.changedTouches) {
+			var id = nextLocalID();
+			touchIDs[touch.identifier] = id;
+			var msg = {id: id, x: touch.clientX / width, y: touch.clientY / height};
+			socket.emit("soundOn", msg);
+			soundOn(msg);
+		}
+		e.preventDefault();
+	});
+
+	cnvs.on('touchmove', function(e) {
+		for(touch of e.changedTouches) {
+			var id = touchIDs[touch.identifier];
+			if(id !== undefined) {
+				var msg = {id: id, x: touch.clientX / width, y: touch.clientY / height};
+				socket.emit("soundMove", msg);
+				soundMove(msg);
+			}
+		}
+	});
+
+	cnvs.on('touchcancel, touchend', function(e) {
+		for(touch of e.changedTouches) {
+			var id = touchIDs[touch.identifier];
+			if(id !== undefined) {
+				delete touchIDs[touch.identifier];
+				var msg = {id: id};
+				socket.emit("soundOff", msg);
+				soundOff(msg);
+			}
+		}
+		e.preventDefault();
+	});
+
+
 
 	socket.on("soundOn", soundOn);
 	socket.on("soundMove", soundMove);
