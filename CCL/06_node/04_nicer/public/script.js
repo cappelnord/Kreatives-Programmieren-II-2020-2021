@@ -213,10 +213,12 @@ function start() {
 	*/
 
 	cnvs.on('mousedown', function(e) {
-		currentID++;
-		currentMouseID = currentID;
-		socket.emit("soundOn", {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height});
-		noteRunning = true;
+		if(e.button == 0) {
+			currentID++;
+			currentMouseID = currentID;
+			socket.emit("soundOn", {id: currentMouseID, x: e.offsetX / width, y: e.offsetY / height});
+			noteRunning = true;
+		}
 	});
 	
 	cnvs.on('mousemove', function(e) {
@@ -233,7 +235,12 @@ function start() {
 		}
 	}
 
-	cnvs.on('mouseup', mouseReleaseFunction);
+	cnvs.on('mouseup', function(e) {
+		if(e.button == 0) {
+			mouseReleaseFunction(e);
+		}
+	});
+	
 	cnvs.on('mouseleave', mouseReleaseFunction);
 
 
