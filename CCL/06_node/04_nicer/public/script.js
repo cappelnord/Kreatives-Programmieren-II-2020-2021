@@ -128,6 +128,7 @@ function filterFromY(y) {
 
 function startNote(id, x, y) {
 	var avatar = $("<div class='avatar'>😮</div>");
+
 	avatar.css({
 		left: x * width,
 		top: y * height
@@ -142,12 +143,16 @@ function startNote(id, x, y) {
 		"sound": sound
 	};
 
-
 	notes[id] = obj;
 }
 
 function updateNote(id, x, y) {
-	if(notes[id] === undefined) return;
+
+	// if a note does not exist yet we create it!
+	if(notes[id] === undefined) {
+		startNote(id, x, y);
+		return;
+	}
 
 	notes[id].avatar.css({
 		left: x * width,
