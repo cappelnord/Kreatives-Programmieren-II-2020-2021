@@ -28,7 +28,7 @@ function initializeAudio() {
     delay.delayTime.value = 0.333 / 2;
 
     var delayGain = audioCtx.createGain();
-    delayGain.gain.setValueAtTime(0.5, 0);
+    delayGain.gain.setValueAtTime(0.5, audioCtx.currentTime);
 
     sink.connect(delay);
     delay.connect(delayGain);
@@ -46,7 +46,7 @@ function initializeAudio() {
 
 }
 
-function startSound(freq, ffreq, amp) {
+function startSound(freq, ffreq, amp, pan) {
 	var now = audioCtx.currentTime;
 
 	var osc = audioCtx.createOscillator();
@@ -59,30 +59,37 @@ function startSound(freq, ffreq, amp) {
 	filter.Q.setValueAtTime(3, now);
 
 	var gain = audioCtx.createGain();
-	gain.gain.setValueAtTime(amp, now)
+	gain.gain.setValueAtTime(amp, now);
+
+	var panNode = audioCtx.createStereoPanner();
+	panNode.pan.setValueAtTime(pan, now);
 
 	osc.connect(filter);
 	filter.connect(gain);
-	gain.connect(sink);
+	gain.connect(panNode);
+	panNode.connect(sink);
 
 	osc.start();
 
-	return {osc: osc, gain: gain, filter: filter};
+	return {osc: osc, gain: gain, filter: filter, pan: panNode};
 }
 
-function updateSound(obj, freq, ffreq, amp) {
+function updateSound(obj, freq, ffreq, amp, pan) {
 	var now = audioCtx.currentTime;
 	obj.osc.frequency.exponentialRampToValueAtTime(freq, now + 0.1);
 	obj.filter.frequency.exponentialRampToValueAtTime(ffreq, now + 0.1);
 	obj.gain.gain.exponentialRampToValueAtTime(amp, now + 0.05);
+	obj.pan.pan.setValueAtTime(pan, now);
 }
 
 function endSound(obj) {
 	var now = audioCtx.currentTime;
+	obj.gain.gain.cancelScheduledValues(now);
 	obj.gain.gain.exponentialRampToValueAtTime(0.001, now + 1);
 
 	window.setTimeout(function() {
-		obj.gain.disconnect();
+		obj.osc.stop();
+		obj.pan.disconnect();
 	}, 1200);
 }
 
@@ -142,6 +149,10 @@ function filterFromY(y) {
 	return Math.pow(100, 1.0 - y) * 0.01 * 8000 + 1000;
 }
 
+function panFromX(x) {
+	return x - 0.5;
+}
+
 function startNote(id, x, y) {
 	x = Math.min(Math.max(x, 0), 1);
 	y = Math.min(Math.max(y, 0), 1);
@@ -155,7 +166,7 @@ function startNote(id, x, y) {
 
 	$("body").append(avatar);
 
-	var sound = startSound(freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y));
+	var sound = startSound(freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y), panFromX(x));
 
 	var obj =  {
 		"avatar": avatar,
@@ -180,7 +191,7 @@ function updateNote(id, x, y) {
 		top: y * height - (avatarSize/2)
 	});
 
-	updateSound(notes[id].sound, freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y));
+	updateSound(notes[id].sound, freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y), panFromX(x));
 }
 
 function releaseNote(id) {
@@ -287,6 +298,7 @@ function start() {
 				soundMove(msg);
 			}
 		}
+		e.preventDefault();
 	});
 
 	cnvs.on('touchcancel, touchend', function(e) {
