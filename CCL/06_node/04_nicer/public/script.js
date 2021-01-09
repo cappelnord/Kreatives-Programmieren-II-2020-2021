@@ -34,7 +34,15 @@ function initializeAudio() {
     delay.connect(delayGain);
     delayGain.connect(sink);
 
-    sink.connect(audioCtx.destination);
+    var compressor = audioCtx.createDynamicsCompressor();
+	compressor.threshold.setValueAtTime(-10, audioCtx.currentTime);
+	compressor.knee.setValueAtTime(40, audioCtx.currentTime);
+	compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
+	compressor.attack.setValueAtTime(0, audioCtx.currentTime);
+	compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+
+	sink.connect(compressor);
+    compressor.connect(audioCtx.destination);
 
 }
 
