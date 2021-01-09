@@ -80,10 +80,11 @@ function endSound(obj) {
 
 
 function drawPiano() {
-	var ctx = cnvs.getContext('2d');
+	// access DOM element directly here
+	var ctx = cnvs[0].getContext('2d');
+	width = cnvs[0].width;
+	height = cnvs[0].height;
 
-	width = cnvs.width;
-	height = cnvs.height;
 	keyWidth =  width / (lastNote - firstNote);
 
 	ctx.strokeStyle = "#888888";
@@ -164,7 +165,7 @@ function releaseNote(id, x, y) {
 
 
 function start() {
-	cnvs = document.getElementById("canvas");
+	cnvs = $("#canvas");
 
 	initializeAudio();
 	drawPiano();
@@ -192,12 +193,12 @@ function start() {
 	}
 	*/
 
-	cnvs.addEventListener('mousedown', function(e) {
+	cnvs.on('mousedown', function(e) {
 		socket.emit("soundOn", {x: e.offsetX, y: e.offsetY});
 		noteRunning = true;
 	});
 	
-	cnvs.addEventListener('mousemove', function(e) {
+	cnvs.on('mousemove', function(e) {
 		if(noteRunning) {
 			socket.emit("soundMove", {x: e.offsetX, y: e.offsetY});
 			updateNote(currentID, e.offsetX, e.offsetY);
@@ -210,6 +211,12 @@ function start() {
 			noteRunning = false;
 		}
 	}
+
+	cnvs.on('mouseup', mouseReleaseFunction);
+	cnvs.on('mouseleave', mouseReleaseFunction);
+
+
+
 
 	socket.on("soundOn", function(msg) {
 		startNote(msg.id, msg.x, msg.y);
@@ -231,8 +238,6 @@ function start() {
 		}
 	});
 
-	cnvs.addEventListener('mouseup', mouseReleaseFunction);
-	cnvs.addEventListener('mouseleave', mouseReleaseFunction);
 }
 
 var button = $("<button>Start!</button>");
