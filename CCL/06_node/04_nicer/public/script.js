@@ -7,6 +7,8 @@ var firstNote = 21;
 var lastNote = 109;
 var numNotes = lastNote - firstNote;
 
+var avatarSize = 30;
+
 // will be set by drawPiano
 var width;
 var height;
@@ -81,9 +83,14 @@ function endSound(obj) {
 
 function drawPiano() {
 	// access DOM element directly here
-	var ctx = cnvs[0].getContext('2d');
-	width = cnvs[0].width;
-	height = cnvs[0].height;
+	var cnvsDOM = cnvs[0];
+
+	cnvsDOM.width = window.innerWidth;
+	cnvsDOM.height = window.innerHeight;
+
+	var ctx = cnvsDOM.getContext('2d');
+	width = cnvsDOM.width;
+	height = cnvsDOM.height;
 
 	var keyWidth =  width / numNotes;
 
@@ -130,8 +137,8 @@ function startNote(id, x, y) {
 	var avatar = $("<div class='avatar'>😮</div>");
 
 	avatar.css({
-		left: x * width,
-		top: y * height
+		left: x * width - (avatarSize/2),
+		top: y * height - (avatarSize/2)
 	});
 
 	$("body").append(avatar);
@@ -155,8 +162,8 @@ function updateNote(id, x, y) {
 	}
 
 	notes[id].avatar.css({
-		left: x * width,
-		top: y * height
+		left: x * width - (avatarSize/2),
+		top: y * height - (avatarSize/2)
 	});
 
 	updateSound(notes[id].sound, freqFromNote(noteFromX(x)), filterFromY(y), ampFromY(y));
@@ -171,12 +178,14 @@ function releaseNote(id, x, y) {
 	delete notes[id];
 }
 
+var hasStarted = false;
 
 function start() {
-	cnvs = $("#canvas");
+
+	if(hasStarted) return;
+	hasStarted = true;
 
 	initializeAudio();
-	drawPiano();
 
 	var noteRunning = false;
 
@@ -247,9 +256,13 @@ function start() {
 
 }
 
-var button = $("<button>Start!</button>");
-$("body").append(button);
-button.click(function() {
-	start();
-	button.remove();
+$(document).ready(function() {
+		cnvs = $("#canvas");
+		drawPiano();
+		$(window).resize(drawPiano);
+
+		$("#play").click(function() {
+			$("#play").remove();
+			start();
+		});
 });
