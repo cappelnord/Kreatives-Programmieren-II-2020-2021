@@ -6,7 +6,7 @@
 - [Automatonism](https://www.automatonism.com/)
 
 ## Patches:
-
+- [Automatonism Patch](automatonism_patch)
 
 ## Weiterführende Links (YouTube):
 - [VCV vs. Hardware](https://youtu.be/2uhsi0aN0ew)
