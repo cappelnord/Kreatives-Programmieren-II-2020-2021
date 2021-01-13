@@ -2,6 +2,7 @@
 
 * [Feedback Intro](feedback_intro.scd)
 * [Feedback mit Laptop](feedback_laptop.scd)
+* [Weitere Feedback Beispiele](feedback.scd)
 
 ## Feedback
 
@@ -9,6 +10,7 @@
 * Kybernetik
 * Positives / Negatives Feedback
 * Feedback im Audiobereich
+* [Videofeedback](https://www.youtube.com/watch?v=B4Kn3djJMCE)
 
 ## Feedback in SuperCollider
 
