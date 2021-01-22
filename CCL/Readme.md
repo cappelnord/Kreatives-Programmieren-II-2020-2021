@@ -14,6 +14,6 @@
 
 ### [08.01.2020 | Web Everything III: Node.js](06_node)
 
-### 22.01.2021 | Hydra
+### [22.01.2021 | Hydra](07_hydra)
 
 ### 05.02.2021 | Wrapping up
