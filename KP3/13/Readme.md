@@ -4,7 +4,7 @@
 
 ## Interferenz in der Physik
 
-**Präsentation Interferenz(Physik)**
+**Präsentation**
 
  [Interferenz.pptx](Interferenz.pptx)
 
