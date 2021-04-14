@@ -2,7 +2,7 @@
 
 ## Semesterüberblick
 
-* 14.04.2021 - **[SuperCollider in Depth I](01)
+* 14.04.2021 - [**SuperCollider in Depth I**](01)
 * 21.04.2021 - **SuperCollider in Depth II**
 * 28.04.2021 - **Netzwerkmusik I**
 * 05.05.2021 - [**Netzwerkmusik II**](04) (Referate)
