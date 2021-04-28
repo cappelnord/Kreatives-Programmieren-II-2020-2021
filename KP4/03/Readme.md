@@ -8,6 +8,14 @@ Netzwerkmusik
 
 * Ogborn, David (2018). Network Music and the Algorithmic Ensemble. In Alex McLean; Roger T. Dean (Eds.) *The Oxford Handbook of Algorithmic Music*, Oxford University Press, 325-333.
 
+* Wieso Netzwerkmusik?
+* Latenz und Jitter
+* Paketverlust
+* Bandbreite
+* Sicherheit
+* Authorität, Beherrschung, Kontrolle
+* Affordance (was die Umgebung/Das Objekt einem bietet)
+
 ### Auswahl an Beispielen
 
 *Beispiele unterschiedlichster Natur; teilweise auch ausgewählt weil Bezug zu Patrick.*
