@@ -2,6 +2,8 @@
 
 Netzwerkmusik II (Referate)
 
+## Gruppenbildung
+
 ## Mögliche Themen
 
 * The Hub (Netzwerkmusik Band)
