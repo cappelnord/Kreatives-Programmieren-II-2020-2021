@@ -18,21 +18,22 @@
 
 ### 05.02.2021 | Wrapping up
 
+
 ## Semesterüberblick Sommer 2021
 
-## 16.04.2021 | Welcome & Planning
+### 16.04.2021 | Welcome & Planning
 
-## 30.04.2021 | Live Coding (TidalCycles)
+### 30.04.2021 | Live Coding (TidalCycles)
 
-## 21.05.2021 | ByteBeat
+### 21.05.2021 | ByteBeat
 
-## 04.06.2021 | ...
+### 04.06.2021 | ...
 
-## 17.06.2021 | ...
+### 17.06.2021 | ...
 
-## 02.07.2021 | ...
+### 02.07.2021 | ...
 
-## 16.07.2021 | ...
+### 16.07.2021 | ...
 
 Offene Themen:
 
