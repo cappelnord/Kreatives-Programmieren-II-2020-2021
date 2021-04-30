@@ -25,19 +25,14 @@
 
 ### 30.04.2021 | Live Coding (TidalCycles)
 
-### 21.05.2021 | ByteBeat
+### 21.05.2021 | Art Games (Game Engine)
 
-### 04.06.2021 | ...
+### 04.06.2021 | Chiptune from Scratch
 
-### 18.06.2021 | ...
+### 18.06.2021 | Jo
 
-### 02.07.2021 | ...
+### 02.07.2021 | Line
 
-### 16.07.2021 | ...
+### 16.07.2021 | Jako
 
-Offene Themen:
-
-* Art Games (Game Engine)
-* Sonifikation
-* Chiptune from Scratch
-* Referate (2 Sessions)
+### 23.07.2021 | Wrapping up
