@@ -6,7 +6,7 @@
 * 21.04.2021 - [**SuperCollider in Depth II**](02)
 * 28.04.2021 - [**Netzwerkmusik I**](03)
 * 05.05.2021 - [**Netzwerkmusik II**](04) (Referate)
-* 12.05.2021 - Netzwerkmusik III (Präsentation/Diskussion der Projekte)
+* 12.05.2021 - [**Netzwerkmusik III (Präsentation/Diskussion der Projekte)**](05)
 * 19.05.2021 - Netzwerkmusik IV (Internes Konzert)
 * 26.05.2021 
 * 02.06.2021 

@@ -4,9 +4,7 @@ Netzwerkmusik II (Referate)
 
 ## Gruppenbildung
 
-## Mögliche Themen
+## Referate
 
-* The Hub (Netzwerkmusik Band)
-* Net Art/net.art
-* Interaktive Musiksysteme im Browser
-* ... (?)
+### The Hub (Netzwerkmusik Band)
+### Net Art/net.art
