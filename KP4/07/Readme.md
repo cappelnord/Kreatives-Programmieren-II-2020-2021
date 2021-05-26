@@ -1,8 +1,14 @@
 # 26.05.2021; Kreatives Programmieren 4
 
-Generative Computergrafik I
+Generative Computergrafik I / Processing
 
 ## Grundlegende Begriffe/Aspekte der Computergrafik
+
+* Rasterisierung
+* Shader
+* Ray Tracing
+* Rastergrafik vs. Vektorgrafik
+* RGB und CMYK
 
 ## Literatur
 
@@ -12,5 +18,4 @@ Generative Computergrafik I
 * Hier wäre ein guter Punkt gewesen gemeinsam [Retrogames e.V](https://www.retrogames.info/) zu besuchen ...
 
 ## Links
-* [Shadertoy](https://www.shadertoy.com/)
 * [Processing](https://processing.org/)
