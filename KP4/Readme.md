@@ -9,10 +9,10 @@
 * 12.05.2021 - [**Netzwerkmusik III (Präsentation/Diskussion der Projekte)**](05)
 * 19.05.2021 - [**Netzwerkmusik IV (Internes Konzert)**](06)
 * 26.05.2021 - [**Processing I / Generative Computergrafik**](07)
-* 02.06.2021 - Processing II 
-* 09.06.2021 - Processing III (Referate über Computergrafik?)
+* 02.06.2021 - [**Processing II**](08) 
+* 09.06.2021 - Processing III
 * 16.06.2021 - Emergenz I
 * 23.06.2021 - Emergenz II (Referate)
 * 30.06.2021 - Emergenz III
 * 07.07.2021 - GLSL/Shader
-* 21.07.2021 - Semesterabschluss
+* 21.07.2021 - Besprechung Grafikprojekt & Semesterabschluss
