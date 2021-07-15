@@ -13,7 +13,7 @@
 - [Naoki Nomoto](https://www.youtube.com/watch?v=qFxldfEm7Ek)
 - [Benoit and the Mandelbrots](https://www.youtube.com/watch?v=zeNszro5dQ8)
 
-[Thoughts we collected during the session](live_coding.pdf)
+[Thoughts we collected during the session](live_coding.pdf) (PDF)
 
 ## TidalCycles
 
