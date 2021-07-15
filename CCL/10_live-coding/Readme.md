@@ -4,7 +4,7 @@
 
 ## Videos
 
-- [Renich Bell](https://www.youtube.com/watch?v=6pks_BSqHB0)
+- [Renick Bell](https://www.youtube.com/watch?v=6pks_BSqHB0)
 - [Alex McLean](https://www.youtube.com/watch?v=FenTeBMkAsQ)
 - [Andrew Sorensen](https://www.youtube.com/watch?v=ptf5xNzCSW8)
 - [Kindohm](https://www.youtube.com/watch?v=RiEq_h5UQJM)
