@@ -25,4 +25,4 @@
 
 - Download the installer from the [website](https://love2d.org/).
 - Install the [love-ide](https://atom.io/packages/love-ide) Atom Package.
--Try running a minmal example (see [here](https://love2d.org/wiki/Getting_Started)).
+- Try running a minmal example (see [here](https://love2d.org/wiki/Getting_Started)).
