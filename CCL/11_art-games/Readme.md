@@ -14,8 +14,8 @@
 ## Literature
 
 - [Arcade Classics Spawn Art? Current Trends in the Art Game Genre](https://web.archive.org/web/20130420092835/http://hypertext.rmit.edu.au/dac/papers/Holmes.pdf) (Holmes)
-- [Between Art and Gameness: Critical Theory and Computer Game Aesthetics](https://www.researchgate.net/publication/249715889_Between_Art_and_Gameness_Critical_Theory_and_Computer_Game_Aesthetics)
-- [I Have No Words & I Must Design: Toward a Critical Vocabulary for Games](http://www.digra.org/digital-library/publications/i-have-no-words-i-must-design-toward-a-critical-vocabulary-for-games/)
+- [Between Art and Gameness: Critical Theory and Computer Game Aesthetics](https://www.researchgate.net/publication/249715889_Between_Art_and_Gameness_Critical_Theory_and_Computer_Game_Aesthetics) (Kirkpatrick)
+- [I Have No Words & I Must Design: Toward a Critical Vocabulary for Games](http://www.digra.org/digital-library/publications/i-have-no-words-i-must-design-toward-a-critical-vocabulary-for-games/) (Costikyan)
 
 ## LÖVE
 
@@ -23,6 +23,6 @@
 
 ### Installation
 
-Download the installer from the [website](https://love2d.org/).
-Install the [love-ide](https://atom.io/packages/love-ide) Atom Package.
-Try running a minmal example (see [here](https://love2d.org/wiki/Getting_Started)).
+- Download the installer from the [website](https://love2d.org/).
+- Install the [love-ide](https://atom.io/packages/love-ide) Atom Package.
+-Try running a minmal example (see [here](https://love2d.org/wiki/Getting_Started)).
