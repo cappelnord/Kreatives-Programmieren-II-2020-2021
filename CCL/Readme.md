@@ -24,7 +24,7 @@
 
 ### 16.04.2021 | Welcome & Planning
 
-### 30.04.2021 | Live Coding (TidalCycles)
+### 30.04.2021 | [Live Coding (TidalCycles)](10_live-coding)
 
 ### 21.05.2021 | Art Games (Game Engine)
 
