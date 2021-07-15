@@ -13,6 +13,12 @@
 - [Naoki Nomoto](https://www.youtube.com/watch?v=qFxldfEm7Ek)
 - [Benoit and the Mandelbrots](https://www.youtube.com/watch?v=zeNszro5dQ8)
 
+## Literature
+
+- [Live coding in laptop performance](https://www.researchgate.net/publication/228811209_Live_coding_in_laptop_performance) (Collins, McLean, Rohrhuber, Ward)
+- [Live Music-Making: A Rich Open Task Requires a Rich Open Interface](https://www.researchgate.net/publication/252066008_Live_Music-Making_A_Rich_Open_Task_Requires_a_Rich_Open_Interface) (McLean, Stowell)
+- [Live Coding of Consequence](https://composerprogrammer.com/research/livecodingofconsequence.pdf) (Collins)
+
 [Thoughts we collected during the session](live_coding.pdf) (PDF)
 
 ## TidalCycles
