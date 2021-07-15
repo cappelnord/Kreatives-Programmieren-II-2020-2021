@@ -1,0 +1,43 @@
+--d1 $ sound "bd"
+--d1 (sound "bd")
+
+d1 $ sound "bd cp"
+
+d2 $ sound "hh hh hh"
+
+d3 $ sound "arpy arpy arpy arpy arpy"
+
+hush
+
+solo 1
+
+unsolo 1
+
+--d4 $ sound "[bd [bd bd]] sn"
+d4 $ sound "[bd [bd*2]] sn"
+
+d5 $ sound "[bd bd, cp]"
+--d5 $ sound "bd bd"
+--d6 $ sound "cp"
+
+d6 $ sound "[[bd bd [sd*2]]*2, cp, [arpy*3]]"
+--d6 $ sound "[[bd bd [sd*2]]*2, cp, arpy*3]"
+
+d7 $ sound "[[bd bd [sd*2]]*2 cp [arpy*3]]"
+
+--d8 $ rev $ sound "cp arpy"
+d8 $ rev (sound "cp arpy")
+
+d9 $ fast 2 (sound "cp arpy")
+
+d1 $ every 4 (fast 8) (sound "cp arpy")
+
+d2 $ fast 2 $ stack [
+  every 2 (fast 0.75) (sound "[bd [bd*2]] cp"),
+  sound "hh*4"
+] # degrade 2
+
+d3 $ fast 2 $ stack [
+  every 2 (fast 0.75) (sound "[bd [bd*2]] cp"),
+  sound "hh*4"
+] # speed "[0.5, 2.0]*2"
